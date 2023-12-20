@@ -134,7 +134,7 @@ export default {
       toggleValue: true, // Add a toggle value in the data
       toggleValue1: false, // Add a toggle value in the data
       amount: '', // Added input for amount
-      apiAmountIn: '',
+      apiAmountIn: 0,
       apiAmountOut: '',
       address: '',
     };
@@ -305,17 +305,22 @@ export default {
         const headers = {
           'Authorization': '6578f49159f6f6f03047e689:9xzZaQuxqA1kznYcCVLTms',
         };
-
+        console.log(this.toggleValue)
+        console.log(this.toggleValue1)
         // Your existing params and additional params for swapping
         const amount = parseFloat(this.apiAmountIn)
         const params = {
           amount: amount,
           from: this.selectedToken.symbol,
           to: this.selectedToken2.symbol,
+          "receiverTag": "",
           addressTo: this.address, // Use the selected address
           anonymous: this.toggleValue,
           fixed: this.toggleValue1,
           direction: 'from', // You mentioned direction as 'from' in the example
+          "ip": "0.0.0.0",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+          "timezone": "UTC"
         };
 
         console.log(params)
